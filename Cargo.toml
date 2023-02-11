@@ -1,0 +1,22 @@
+[package]
+name = "zephyr-route"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["bgp"]
+full = ["bgp_full", "log"]
+log = ["dep:log"]
+std = []
+ospf = []
+
+# BGP Features
+bgp_full = ["bgp", "bgp_route_refresh", "bgp_multiprotocol"]
+bgp = []
+bgp_route_refresh = []
+bgp_multiprotocol = []
+
+[dependencies]
+log = { version = "0.4.17", optional = true }
+paste = "1.0.11"
+bitflags = "2.0.0-rc.1"
